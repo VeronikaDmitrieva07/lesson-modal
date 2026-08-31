@@ -1,3 +1,5 @@
+import {Cart} from "./components/Cart/Cart"
+
 export const App = () => {
-  return <div>App</div>
+  return <Cart />
 }
