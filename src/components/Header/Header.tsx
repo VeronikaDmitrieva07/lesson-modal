@@ -6,7 +6,7 @@ export const Header = () => {
         <div className={s.headerWrapper}>
             <div className={s.container}>
                 <h3>logotype</h3>
-                <Cart />
+                <Cart/>
             </div>
         </div>
     )
