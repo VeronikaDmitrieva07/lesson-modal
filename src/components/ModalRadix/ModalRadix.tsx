@@ -1,20 +1,23 @@
 import * as Dialog from "@radix-ui/react-dialog"
 import {Cross2Icon} from "@radix-ui/react-icons"
-import type {ReactNode} from "react"
+import clsx from "clsx"
+import type {ComponentPropsWithoutRef} from "react"
 import s from "./ModalRadix.module.css"
+
+type ModalSize = "lg" | "md" | "sm"
 
 type Props = {
     open: boolean
     onOpenChange: () => void
-    children: ReactNode
+    size?: ModalSize
     modalTitle: string
-}
+} & ComponentPropsWithoutRef<"div">
 
-export const ModalRadix = ({open, onOpenChange, children, modalTitle}: Props) => (
-    <Dialog.Root open={open} onOpenChange={onOpenChange}>
+export const ModalRadix = ({open, onOpenChange, size = "md", children, modalTitle, className, ...rest}: Props) => (
+    <Dialog.Root open={open} onOpenChange={onOpenChange} {...rest}>
         <Dialog.Portal>
             <Dialog.Overlay className={s.Overlay}/>
-            <Dialog.Content className={s.Content}>
+            <Dialog.Content className={clsx(s.Content, s[size], className)}>
                 <Dialog.Title className={s.Title}>{modalTitle}</Dialog.Title>
                 <hr/>
                 {children}

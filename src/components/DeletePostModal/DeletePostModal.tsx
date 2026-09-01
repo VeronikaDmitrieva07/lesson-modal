@@ -1,3 +1,4 @@
+import {Button} from "../Button/Button"
 import {ModalRadix} from "../ModalRadix/ModalRadix"
 
 type Props = {
@@ -7,11 +8,11 @@ type Props = {
 
 export const DeletePostModal = ({open, onOpenChange}: Props) => {
     return (
-        <ModalRadix open={open} onOpenChange={onOpenChange} modalTitle={"Delete Post"}>
+        <ModalRadix open={open} onOpenChange={onOpenChange} modalTitle={"Delete Post"} size={"md"}>
             Are you sure you want to delete this post?
             <div>
-                <button onClick={onOpenChange}>Yes</button>
-                <button onClick={onOpenChange}>No</button>
+                <Button onClick={onOpenChange}>Yes</Button>
+                <Button onClick={onOpenChange}>No</Button>
             </div>
         </ModalRadix>
     )
